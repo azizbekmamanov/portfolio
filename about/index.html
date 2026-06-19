@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azizbek Mamanov // About // Dossier</title>
+  <meta name="description" content="Honest dossier, skill matrix, and interactive CLI console for Azizbek Mamanov — 2nd-year PDP University student, aspiring full-stack & security engineer." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="glow-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="glitch-fx" aria-hidden="true"></div>
+
+  <!-- Navigation header -->
+  <header class="cyber-header">
+    <div class="header-logo">
+      <span class="bracket">[</span>az<span class="blink">_</span>sys.dossier<span class="bracket">]</span>
+    </div>
+    <nav class="header-nav">
+      <a href="../index.html" class="btn-back">← RETURN TO MAIN</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="uz">UZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- HERO SUMMARY -->
+    <section class="profile-hero">
+      <div class="profile-meta">
+        <span class="badge badge--red" data-i18n="badge">DEVELOPER DOSSIER</span>
+        <span class="sys-time" id="sysTime">SYS_TIME: --</span>
+      </div>
+      <h1 class="profile-title" id="dossierTitle">AZIZBEK MAMANOV</h1>
+      <p class="profile-subtitle" id="dossierSubtitle" data-i18n="subtitle">// 2-kurs talabasi — full-stack & veb-xavfsizlikni o'rganmoqda</p>
+    </section>
+
+    <div class="cyber-grid">
+
+      <!-- LEFT COLUMN -->
+      <div class="col-left">
+        <!-- BIOGRAPHY -->
+        <section class="panel reveal" id="secBio">
+          <div class="panel-header">
+            <span class="panel-dot"></span>
+            <h2 class="panel-title" data-i18n="bio.title">01. BIOGRAPHICAL PROTOCOL</h2>
+          </div>
+          <div class="panel-body bio-text">
+            <p class="lead-text" data-i18n-html="bio.lead"></p>
+            <p data-i18n="bio.p1"></p>
+            <p data-i18n="bio.p2"></p>
+          </div>
+        </section>
+
+        <!-- TIMELINE -->
+        <section class="panel reveal" id="secTimeline">
+          <div class="panel-header">
+            <span class="panel-dot"></span>
+            <h2 class="panel-title" data-i18n="timeline.title">02. LOGS OF OPERATIONS</h2>
+          </div>
+          <div class="panel-body">
+            <div class="timeline">
+              <div class="time-item">
+                <div class="time-meta">
+                  <span class="time-date">2026 — HOZIR</span>
+                  <span class="time-status status--active" data-i18n="status.active">ACTIVE</span>
+                </div>
+                <div class="time-content">
+                  <h3 class="time-title" data-i18n="exp.title1"></h3>
+                  <p class="time-desc" data-i18n="exp.desc1"></p>
+                </div>
+              </div>
+
+              <div class="time-item">
+                <div class="time-meta">
+                  <span class="time-date">2025</span>
+                  <span class="time-status status--active" data-i18n="status.active">ACTIVE</span>
+                </div>
+                <div class="time-content">
+                  <h3 class="time-title" data-i18n="exp.title2"></h3>
+                  <p class="time-desc" data-i18n="exp.desc2"></p>
+                </div>
+              </div>
+
+              <div class="time-item">
+                <div class="time-meta">
+                  <span class="time-date">2023</span>
+                  <span class="time-status status--resolved" data-i18n="status.resolved">DONE</span>
+                </div>
+                <div class="time-content">
+                  <h3 class="time-title" data-i18n="exp.title3"></h3>
+                  <p class="time-desc" data-i18n="exp.desc3"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div class="col-right">
+        <!-- INTERACTIVE CLI -->
+        <section class="panel panel--terminal reveal">
+          <div class="panel-header header--terminal">
+            <div class="term-buttons">
+              <span class="term-dot term-dot--close"></span>
+              <span class="term-dot term-dot--min"></span>
+              <span class="term-dot term-dot--max"></span>
+            </div>
+            <span class="term-label">guest@mamanov:~</span>
+            <span class="term-hint">interactive cli</span>
+          </div>
+          <div class="panel-body body--terminal">
+            <div class="term-outputs" id="termOutputs"></div>
+            <div class="term-input-line">
+              <span class="term-prompt">guest@mamanov:~$</span>
+              <input type="text" class="term-input" id="termInput" autocomplete="off" spellcheck="false" placeholder="type a command..." />
+            </div>
+            <div class="term-shortcuts">
+              <button class="btn-shortcut" data-cmd="whoami">whoami</button>
+              <button class="btn-shortcut" data-cmd="skills">skills</button>
+              <button class="btn-shortcut" data-cmd="projects">projects</button>
+              <button class="btn-shortcut" data-cmd="clear">clear</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- NETWORK MAP (demo) -->
+        <section class="panel reveal">
+          <div class="panel-header">
+            <span class="panel-dot"></span>
+            <h2 class="panel-title" data-i18n="net.title">03. NETWORK MAP (demo)</h2>
+          </div>
+          <div class="panel-body net-map">
+            <div class="net-row" id="netRow">
+              <button class="net-node" data-target="you">YOU</button>
+              <span class="net-link">→</span>
+              <button class="net-node" data-target="firewall">FIREWALL</button>
+              <span class="net-link">→</span>
+              <button class="net-node" data-target="web">WEB</button>
+              <span class="net-link">→</span>
+              <button class="net-node" data-target="db">DB</button>
+            </div>
+            <p class="net-hint" data-i18n="net.hint">// tugunni bosing — terminalda virtual skan ishlaydi</p>
+          </div>
+        </section>
+
+        <!-- SKILL HUD -->
+        <section class="panel reveal">
+          <div class="panel-header">
+            <span class="panel-dot"></span>
+            <h2 class="panel-title" data-i18n="hud.title">03. SKILL MATRIX</h2>
+          </div>
+          <div class="panel-body stats-hud">
+            <div class="hud-item">
+              <div class="hud-label">
+                <span data-i18n="hud.py">PYTHON (asoslar + biroz OOP)</span>
+                <span class="hud-pct">50%</span>
+              </div>
+              <div class="hud-bar"><div class="hud-progress" style="width: 50%; --hud-color: var(--cyan);"></div></div>
+            </div>
+
+            <div class="hud-item">
+              <div class="hud-label">
+                <span data-i18n="hud.web">WEB / FULL-STACK (o'rganmoqda)</span>
+                <span class="hud-pct">45%</span>
+              </div>
+              <div class="hud-bar"><div class="hud-progress" style="width: 45%; --hud-color: var(--accent);"></div></div>
+            </div>
+
+            <div class="hud-item">
+              <div class="hud-label">
+                <span data-i18n="hud.scripts">AVTOMATLASHTIRISH SKRIPTLARI</span>
+                <span class="hud-pct">55%</span>
+              </div>
+              <div class="hud-bar"><div class="hud-progress" style="width: 55%; --hud-color: var(--violet);"></div></div>
+            </div>
+
+            <div class="hud-item">
+              <div class="hud-label">
+                <span data-i18n="hud.sec">VEB-XAVFSIZLIK AMALIYOTI (DVWA lab)</span>
+                <span class="hud-pct">35%</span>
+              </div>
+              <div class="hud-bar"><div class="hud-progress" style="width: 35%; --hud-color: var(--red);"></div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECURE CONTACT (links + encrypt) -->
+        <section class="panel reveal">
+          <div class="panel-header">
+            <span class="panel-dot"></span>
+            <h2 class="panel-title" data-i18n="contact.title">05. CONTACT</h2>
+          </div>
+          <div class="panel-body">
+            <div class="contact-card">
+              <a class="contact-link" href="mailto:mamanovazizbek18@gmail.com">
+                <span class="contact-link__k">EMAIL</span>
+                <span class="contact-link__v">mamanovazizbek18@gmail.com</span>
+              </a>
+              <a class="contact-link" href="https://t.me/mamanovazizbek" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link__k">TELEGRAM</span>
+                <span class="contact-link__v">@mamanovazizbek</span>
+              </a>
+              <a class="contact-link" href="https://instagram.com/azizbekmamanov_" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link__k">INSTAGRAM</span>
+                <span class="contact-link__v">@azizbekmamanov_</span>
+              </a>
+              <a class="contact-link" href="https://github.com/azizbekmamanov" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link__k">GITHUB</span>
+                <span class="contact-link__v">github.com/azizbekmamanov</span>
+              </a>
+            </div>
+
+            <div class="pgp-divider"><span data-i18n="pgp.title">// send an encrypted message</span></div>
+
+            <div class="pgp-panel">
+              <p class="pgp-desc" data-i18n="pgp.desc">Menga maxfiy xabar yuboring — u brauzeringizda mening ochiq kalitim bilan shifrlanadi.</p>
+              <textarea id="pgpInput" class="pgp-input" data-i18n="pgp.ph" placeholder="xabaringiz..."></textarea>
+              <div class="pgp-actions">
+                <button class="btn-copy" id="pgpEncrypt" data-i18n="pgp.btn">ENCRYPT →</button>
+                <button class="btn-copy" id="pgpCopy" hidden data-i18n="pgp.copy">COPY</button>
+                <button class="pgp-keytoggle" id="pgpKeyToggle" data-i18n="pgp.showkey">show public key</button>
+              </div>
+              <pre class="pgp-out" id="pgpOut" hidden></pre>
+              <pre class="pgp-key" id="pgpKey" hidden></pre>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="cyber-footer">
+    <span id="footerText">© 2026 Azizbek Mamanov // dossier v2.0 // honest build</span>
+  </footer>
+
+  <script src="https://unpkg.com/openpgp@5/dist/openpgp.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

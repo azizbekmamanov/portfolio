@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Azizbek Mamanov — 18-year-old student developer at PDP University. Learning full-stack, automating tasks with scripts, and practicing web security in a legal lab." />
+  <meta name="theme-color" content="#0a0b0d" />
+  <meta property="og:title" content="Azizbek Mamanov // Student Developer" />
+  <meta property="og:description" content="18-year-old student developer — learning full-stack, automating tasks, and exploring web security the right way." />
+  <meta property="og:type" content="website" />
+  <title>Azizbek Mamanov // Student Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== GLOBAL 3D BACKGROUND ===== -->
+  <div class="bgfx" aria-hidden="true"><canvas id="gl"></canvas></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="glitch-fx" aria-hidden="true"></div>
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__inner">
+      <pre class="preloader__log" id="preLog"></pre>
+      <div class="preloader__bar"><i id="preBar"></i></div>
+      <div class="preloader__pct"><span id="prePct">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- custom cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <span class="cursor__label" id="cursorLabel"></span>
+  </div>
+
+  <!-- fx overlays -->
+  <div class="fx-grain" aria-hidden="true"></div>
+  <div class="fx-scan" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- sound toggle -->
+  <button class="sound" id="soundToggle" aria-label="toggle sound" title="sound">
+    <span class="sound__bars"><i></i><i></i><i></i><i></i></span>
+  </button>
+
+  <!-- nav -->
+  <header class="nav">
+    <a href="#top" class="nav__logo" data-cursor>
+      <span class="nav__bracket">[</span>az<span class="nav__cursor">_</span><span class="nav__bracket">]</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="#work" data-cursor data-i18n="nav.work">work</a>
+      <a href="#about" data-cursor data-i18n="nav.about">about</a>
+      <a href="#stack" data-cursor data-i18n="nav.stack">stack</a>
+      <a href="#contact" class="nav__cta" data-cursor data-i18n="nav.contact">contact</a>
+      <div class="lang" id="lang">
+        <button class="lang__btn" data-lang="uz">UZ</button>
+        <button class="lang__btn" data-lang="en">EN</button>
+        <button class="lang__btn" data-lang="ru">RU</button>
+      </div>
+    </nav>
+    <button class="nav__burger" id="burger" aria-label="menu" aria-expanded="false" data-cursor>
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__status">
+          <span class="dot"></span> <span data-i18n="hero.status">available for work — 2026</span>
+        </div>
+        <h1 class="hero__title">
+          <span class="line">Azizbek</span>
+          <span class="line line--accent">Mamanov</span>
+        </h1>
+        <p class="hero__role" id="typed"></p>
+        <p class="hero__desc" data-i18n="hero.desc">
+          I like understanding how things work, then building something that doesn't
+          break. I'm learning full-stack, I automate boring tasks with scripts, and I
+          practice web security in a legal lab.
+        </p>
+        <div class="hero__actions">
+          <a href="#work" class="btn btn--primary" data-cursor data-i18n="hero.btnWork">view selected work →</a>
+          <a href="#contact" class="btn btn--ghost" data-cursor data-i18n="hero.btnContact">get in touch</a>
+        </div>
+
+        <div class="now">
+          <span class="now__dot"></span>
+          <span class="now__label" data-i18n="hero.now">currently</span>
+          <span class="now__text" id="nowText"></span>
+        </div>
+      </div>
+
+      <aside class="terminal">
+        <div class="terminal__bar">
+          <span></span><span></span><span></span>
+          <p>~/azizbek — zsh</p>
+        </div>
+        <pre class="terminal__body" id="term"></pre>
+        <div class="terminal__inputline" id="termInputLine" hidden>
+          <span class="terminal__prompt">azizbek@pdp:~$</span>
+          <input id="homeTermInput" class="terminal__input" autocomplete="off" spellcheck="false" aria-label="terminal input" />
+        </div>
+      </aside>
+    </section>
+
+    <!-- marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>FULL-STACK ✦ AUTOMATION ✦ WEB SECURITY (LAB) ✦ PYTHON ✦ JAVASCRIPT ✦ LEARNING ✦&nbsp;</span>
+        <span>FULL-STACK ✦ AUTOMATION ✦ WEB SECURITY (LAB) ✦ PYTHON ✦ JAVASCRIPT ✦ LEARNING ✦&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats">
+      <div class="stat reveal"><span class="stat__num" data-target="10">0</span><span class="stat__plus">+</span><p data-i18n="stat.s1">projects built</p></div>
+      <div class="stat reveal"><span class="stat__num" data-target="3">0</span><span class="stat__plus">+</span><p data-i18n="stat.s2">programming languages</p></div>
+      <div class="stat reveal"><span class="stat__num" data-target="6">0</span><p data-i18n="stat.s3">month Python course</p></div>
+      <div class="stat reveal"><span class="stat__num" data-target="2025">0</span><p data-i18n="stat.s4">at PDP University since</p></div>
+    </section>
+
+    <!-- ===== WORK ===== -->
+    <section id="work" class="section">
+      <div class="section__head reveal">
+        <span class="section__idx">01</span>
+        <h2 class="section__title" data-i18n="sec.work">Selected Work</h2>
+        <p class="section__sub" data-i18n="sec.workSub">// case files — click to open</p>
+      </div>
+      <div class="cases" id="cases"></div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+      <div class="section__head reveal">
+        <span class="section__idx">02</span>
+        <h2 class="section__title" data-i18n="sec.about">About</h2>
+      </div>
+      <div class="about reveal">
+        <p class="about__lead" data-i18n-html="about.lead">I <em>understand the process first</em>, then build.</p>
+        <p data-i18n="about.p1">I'm an 18-year-old student developer. I started with a Python course in 2023, and now I'm learning full-stack at PDP University (on a grant) and writing automation scripts for a local office.</p>
+        <p data-i18n="about.p2">Based in Uzbekistan 🇺🇿 · working in Python, JavaScript, and full-stack. Next up: software development with Java.</p>
+        <a href="about/index.html" class="btn btn--ghost" data-cursor data-i18n="about.dossier" style="margin-top:10px;display:inline-block">open full dossier →</a>
+      </div>
+    </section>
+
+    <!-- ===== STACK ===== -->
+    <section id="stack" class="section">
+      <div class="section__head reveal">
+        <span class="section__idx">03</span>
+        <h2 class="section__title" data-i18n="sec.stack">Stack &amp; Arsenal</h2>
+      </div>
+      <div class="stack reveal">
+        <div class="stack__col">
+          <h4 data-i18n="stack.security">// security (learning)</h4>
+          <ul>
+            <li data-i18n="stack.re">Web-security basics</li>
+            <li data-i18n="stack.ir">XSS practice (DVWA lab)</li>
+            <li>HTTP · DevTools</li>
+            <li>Linux</li>
+            <li data-i18n="stack.malware">Curious & learning</li>
+          </ul>
+        </div>
+        <div class="stack__col">
+          <h4 data-i18n="stack.engineering">// engineering</h4>
+          <ul>
+            <li>Python · Flask / FastAPI</li>
+            <li>Node · Express</li>
+            <li>Next.js · React</li>
+            <li>SQLite · PostgreSQL</li>
+            <li>Three.js · WebGL</li>
+          </ul>
+        </div>
+        <div class="stack__col">
+          <h4 data-i18n="stack.systems">// systems</h4>
+          <ul>
+            <li>Linux</li>
+            <li>ESP32 · MicroPython</li>
+            <li data-i18n="stack.ml">Docker (lab)</li>
+            <li data-i18n="stack.deploy">Deploy · cPanel / Vercel</li>
+            <li>Git</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section section--contact">
+      <div class="contact reveal">
+        <span class="section__idx">04</span>
+        <h2 class="contact__title" data-i18n-html="contact.title">Let's build something<br />that doesn't break.</h2>
+        <a href="mailto:mamanovazizbek18@gmail.com" class="contact__mail" data-cursor>mamanovazizbek18@gmail.com</a>
+        <div class="contact__socials">
+          <a href="https://github.com/azizbekmamanov" target="_blank" rel="noopener noreferrer" data-cursor>GitHub</a>
+          <a href="https://t.me/mamanovazizbek" target="_blank" rel="noopener noreferrer" data-cursor>Telegram</a>
+          <a href="https://instagram.com/azizbekmamanov_" target="_blank" rel="noopener noreferrer" data-cursor>Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Azizbek Mamanov</span>
+    <span class="footer__sig" data-i18n="footer.sig">designed &amp; coded — no templates</span>
+  </footer>
+
+  <!-- ===== CASE MODAL (terminal style) ===== -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true">
+      <div class="modal__termbar">
+        <button class="tdot tdot--r" data-close aria-label="close" title="close"></button>
+        <button class="tdot tdot--y" data-close aria-label="minimize" title="minimize"></button>
+        <span class="tdot tdot--g" title="zoom"></span>
+        <p class="modal__fname" id="mFile">case.log</p>
+        <span class="modal__hint">esc</span>
+      </div>
+      <pre class="modal__term" id="mTerm"></pre>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

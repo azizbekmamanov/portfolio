@@ -2,7 +2,7 @@
 
 Personal portfolio of **Azizbek Mamanov** — an 18-year-old student developer at PDP University, learning full-stack development and exploring web security (in legal labs).
 
-🌐 **Live:** _coming soon_
+🌐 **Live:** https://azizbekmamanov.github.io/portfolio/
 📄 **Dossier:** `about/` — interactive CLI, skill matrix, and a real PGP encrypt panel
 
 ## Features

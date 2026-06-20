@@ -81,7 +81,7 @@ const NOW = {
 /* ============ CASE DATA (shared + per-language) ============ */
 const CASES = [
   {
-    id: 'CASE-001', tagClass: 'tag--green', stack: ['Express', 'React', 'SQLite', 'Node'],
+    id: 'CASE-001', tagClass: 'tag--green', stack: ['Express', 'React', 'SQLite', 'Node'], repo: 'https://github.com/azizbekmamanov/dmed',
     i18n: {
       uz: { tag: 'FULL-STACK', title: 'DMED — tibbiy yozuvlar tizimi',
         short: 'Bemor yozuvlari va rollar uchun full-stack ilova (Express + React + SQLite) — o\'quv loyihasi.',
@@ -101,7 +101,7 @@ const CASES = [
     },
   },
   {
-    id: 'CASE-002', tagClass: 'tag--cyan', stack: ['Node', 'Express', 'Frontend', 'SQLite'],
+    id: 'CASE-002', tagClass: 'tag--cyan', stack: ['Node', 'Express', 'Frontend', 'SQLite'], repo: 'https://github.com/azizbekmamanov/KUTUBXONA',
     i18n: {
       uz: { tag: 'FULL-STACK', title: 'KUTUBXONA — kutubxona tizimi',
         short: 'Kitoblar, a\'zolar va ijaralarni boshqarish uchun backend + frontend tizimi.',
@@ -121,7 +121,7 @@ const CASES = [
     },
   },
   {
-    id: 'CASE-003', tagClass: 'tag--violet', stack: ['Flask', 'Python', 'SQLite', 'RBAC'],
+    id: 'CASE-003', tagClass: 'tag--violet', stack: ['Flask', 'Python', 'SQLite', 'RBAC'], repo: 'https://github.com/azizbekmamanov/pdp-davomat',
     i18n: {
       uz: { tag: 'BACKEND · LMS', title: 'pdp-davomat — davomat / LMS',
         short: 'Flask\'da davomat va o\'quv jarayonini boshqarish uchun rollarga ega tizim (admin / o\'qituvchi / talaba).',
@@ -171,7 +171,7 @@ let currentCases = [];
 const casesEl = document.getElementById('cases');
 
 function buildCases() {
-  currentCases = CASES.map((c) => ({ id: c.id, tagClass: c.tagClass, stack: c.stack, ...c.i18n[lang] }));
+  currentCases = CASES.map((c) => ({ id: c.id, tagClass: c.tagClass, stack: c.stack, repo: c.repo, ...c.i18n[lang] }));
   casesEl.innerHTML = currentCases.map((c, i) => `
     <article class="case reveal in" data-i="${i}" data-cursor-case>
       <div class="case__meta">
@@ -260,6 +260,9 @@ function openCase(i) {
     `  ${c.outcome}`,
     '',
     `<span class="c-faint"># stack:</span> ${c.stack.join('  ·  ')}`,
+    ...(c.repo
+      ? [`<span class="c-faint"># repo:</span> <a href="${c.repo}" target="_blank" rel="noopener noreferrer" style="color:var(--cyan)">${c.repo.replace('https://', '')}</a>`]
+      : ['<span class="c-faint"># repo:</span> private']),
     '',
     `<span class="c-prompt">azizbek@pdp</span>:~$ <span class="caret">▋</span>`,
   ];

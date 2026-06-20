@@ -35,12 +35,15 @@
   <main class="container">
     <!-- HERO SUMMARY -->
     <section class="profile-hero">
-      <div class="profile-meta">
-        <span class="badge badge--red" data-i18n="badge">DEVELOPER DOSSIER</span>
-        <span class="sys-time" id="sysTime">SYS_TIME: --</span>
+      <img class="profile-photo" src="me.jpg" alt="Azizbek Mamanov" />
+      <div class="profile-intro">
+        <div class="profile-meta">
+          <span class="badge badge--red" data-i18n="badge">DEVELOPER DOSSIER</span>
+          <span class="sys-time" id="sysTime">SYS_TIME: --</span>
+        </div>
+        <h1 class="profile-title" id="dossierTitle">AZIZBEK MAMANOV</h1>
+        <p class="profile-subtitle" id="dossierSubtitle" data-i18n="subtitle">// universitet talabasi — full-stack & veb-xavfsizlikni o'rganmoqda</p>
       </div>
-      <h1 class="profile-title" id="dossierTitle">AZIZBEK MAMANOV</h1>
-      <p class="profile-subtitle" id="dossierSubtitle" data-i18n="subtitle">// 2-kurs talabasi — full-stack & veb-xavfsizlikni o'rganmoqda</p>
     </section>
 
     <div class="cyber-grid">
@@ -133,26 +136,6 @@
           </div>
         </section>
 
-        <!-- NETWORK MAP (demo) -->
-        <section class="panel reveal">
-          <div class="panel-header">
-            <span class="panel-dot"></span>
-            <h2 class="panel-title" data-i18n="net.title">03. NETWORK MAP (demo)</h2>
-          </div>
-          <div class="panel-body net-map">
-            <div class="net-row" id="netRow">
-              <button class="net-node" data-target="you">YOU</button>
-              <span class="net-link">→</span>
-              <button class="net-node" data-target="firewall">FIREWALL</button>
-              <span class="net-link">→</span>
-              <button class="net-node" data-target="web">WEB</button>
-              <span class="net-link">→</span>
-              <button class="net-node" data-target="db">DB</button>
-            </div>
-            <p class="net-hint" data-i18n="net.hint">// tugunni bosing — terminalda virtual skan ishlaydi</p>
-          </div>
-        </section>
-
         <!-- SKILL HUD -->
         <section class="panel reveal">
           <div class="panel-header">
@@ -194,47 +177,6 @@
           </div>
         </section>
 
-        <!-- SECURE CONTACT (links + encrypt) -->
-        <section class="panel reveal">
-          <div class="panel-header">
-            <span class="panel-dot"></span>
-            <h2 class="panel-title" data-i18n="contact.title">05. CONTACT</h2>
-          </div>
-          <div class="panel-body">
-            <div class="contact-card">
-              <a class="contact-link" href="mailto:mamanovazizbek18@gmail.com">
-                <span class="contact-link__k">EMAIL</span>
-                <span class="contact-link__v">mamanovazizbek18@gmail.com</span>
-              </a>
-              <a class="contact-link" href="https://t.me/mamanovazizbek" target="_blank" rel="noopener noreferrer">
-                <span class="contact-link__k">TELEGRAM</span>
-                <span class="contact-link__v">@mamanovazizbek</span>
-              </a>
-              <a class="contact-link" href="https://instagram.com/azizbekmamanov_" target="_blank" rel="noopener noreferrer">
-                <span class="contact-link__k">INSTAGRAM</span>
-                <span class="contact-link__v">@azizbekmamanov_</span>
-              </a>
-              <a class="contact-link" href="https://github.com/azizbekmamanov" target="_blank" rel="noopener noreferrer">
-                <span class="contact-link__k">GITHUB</span>
-                <span class="contact-link__v">github.com/azizbekmamanov</span>
-              </a>
-            </div>
-
-            <div class="pgp-divider"><span data-i18n="pgp.title">// send an encrypted message</span></div>
-
-            <div class="pgp-panel">
-              <p class="pgp-desc" data-i18n="pgp.desc">Menga maxfiy xabar yuboring — u brauzeringizda mening ochiq kalitim bilan shifrlanadi.</p>
-              <textarea id="pgpInput" class="pgp-input" data-i18n="pgp.ph" placeholder="xabaringiz..."></textarea>
-              <div class="pgp-actions">
-                <button class="btn-copy" id="pgpEncrypt" data-i18n="pgp.btn">ENCRYPT →</button>
-                <button class="btn-copy" id="pgpCopy" hidden data-i18n="pgp.copy">COPY</button>
-                <button class="pgp-keytoggle" id="pgpKeyToggle" data-i18n="pgp.showkey">show public key</button>
-              </div>
-              <pre class="pgp-out" id="pgpOut" hidden></pre>
-              <pre class="pgp-key" id="pgpKey" hidden></pre>
-            </div>
-          </div>
-        </section>
       </div>
 
     </div>
@@ -244,7 +186,6 @@
     <span id="footerText">© 2026 Azizbek Mamanov // dossier v2.0 // honest build</span>
   </footer>
 
-  <script src="https://unpkg.com/openpgp@5/dist/openpgp.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

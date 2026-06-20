@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azizbek Mamanov // Contact</title>
+  <meta name="description" content="Get in touch with Azizbek Mamanov — email, Telegram, Instagram, GitHub." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../about/styles.css" />
+  <style>
+    .contact-page{max-width:720px}
+    .contact-lead{font-size:16px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+    .btn-cta{
+      display:inline-block;margin-top:22px;font-family:"JetBrains Mono",monospace;
+      font-size:14px;font-weight:700;color:#04130a;background:var(--accent);
+      padding:13px 22px;border-radius:10px;transition:transform .2s,box-shadow .2s}
+    .btn-cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(57,255,139,.3)}
+  </style>
+</head>
+<body>
+  <div class="glow-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="glitch-fx" aria-hidden="true"></div>
+
+  <header class="cyber-header">
+    <div class="header-logo">
+      <span class="bracket">[</span>az<span class="blink">_</span>sys.contact<span class="bracket">]</span>
+    </div>
+    <nav class="header-nav">
+      <a href="../index.html" class="btn-back">← RETURN TO MAIN</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="uz">UZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container contact-page">
+    <section class="profile-hero">
+      <div class="profile-intro">
+        <div class="profile-meta">
+          <span class="badge badge--red" data-i18n="badge">CONTACT</span>
+          <span class="sys-time" id="sysTime">SYS_TIME: --</span>
+        </div>
+        <h1 class="profile-title" data-i18n="title">ALOQA</h1>
+        <p class="profile-subtitle" data-i18n="subtitle">// keling, bog'lanamiz</p>
+      </div>
+    </section>
+
+    <section class="panel reveal">
+      <div class="panel-header">
+        <span class="panel-dot"></span>
+        <h2 class="panel-title" data-i18n="ch.title">01. ALOQA KANALLARI</h2>
+      </div>
+      <div class="panel-body">
+        <p class="contact-lead" data-i18n="lead">Loyiha, hamkorlik yoki shunchaki salom — yozing!</p>
+        <div class="contact-card">
+          <a class="contact-link" href="mailto:mamanovazizbek18@gmail.com">
+            <span class="contact-link__k">EMAIL</span>
+            <span class="contact-link__v">mamanovazizbek18@gmail.com</span>
+          </a>
+          <a class="contact-link" href="https://t.me/mamanovazizbek" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__k">TELEGRAM</span>
+            <span class="contact-link__v">@mamanovazizbek</span>
+          </a>
+          <a class="contact-link" href="https://instagram.com/azizbekmamanov_" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__k">INSTAGRAM</span>
+            <span class="contact-link__v">@azizbekmamanov_</span>
+          </a>
+          <a class="contact-link" href="https://github.com/azizbekmamanov" target="_blank" rel="noopener noreferrer">
+            <span class="contact-link__k">GITHUB</span>
+            <span class="contact-link__v">github.com/azizbekmamanov</span>
+          </a>
+        </div>
+        <a class="btn-cta" href="mailto:mamanovazizbek18@gmail.com" data-i18n="cta">Email yuborish →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cyber-footer">
+    <span data-i18n="footer">© 2026 Azizbek Mamanov // contact</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

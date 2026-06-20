@@ -417,10 +417,11 @@ function initHomeTerm() {
     } else if (cmd === 'whoami') {
       print('student developer · learning full-stack · PDP University');
     } else if (cmd === 'cd') {
-      if (arg === 'about' || arg === 'about/' || arg === 'dossier') {
-        print('<span class="c-ok">opening dossier...</span>');
+      const PAGES = { about: 'about/index.html', dossier: 'about/index.html', 'about/': 'about/index.html', contact: 'contact/index.html', 'contact/': 'contact/index.html' };
+      if (PAGES[arg]) {
+        print('<span class="c-ok">opening ' + arg.replace('/', '') + '...</span>');
         triggerGlitch();
-        setTimeout(() => { location.href = 'about/index.html'; }, 260);
+        setTimeout(() => { location.href = PAGES[arg]; }, 260);
       } else if (FILES.includes(arg)) {
         print(`<span class="c-ok">→ ${arg}</span>`); triggerGlitch(); goSection(arg);
       } else if (arg === '~' || arg === '/' || arg === '..' || !arg) {

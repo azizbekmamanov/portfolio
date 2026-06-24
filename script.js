@@ -19,6 +19,11 @@ const I18N = {
     'about.p1': "18 yoshli talaba dasturchiman. 2023-yilda Python kursi bilan boshlaganman, hozir PDP Universitetida (grant) full-stack o'rganaman va MFY uchun avtomatlashtirish skriptlari yozaman.",
     'about.p2': "O'zbekistonda 🇺🇿 · Python, JavaScript va full-stack bilan ishlayman. Kelajakda — software development (Java).",
     'about.dossier': "to'liq dossierni ochish →",
+    'hub.title': "Bo'limlar", 'hub.sub': '// kartani bosing — yoki terminalda: cd <nom>',
+    'hub.about': 'Men haqimda', 'hub.aboutS': 'men kimman',
+    'hub.work': 'Ishlar', 'hub.workS': 'loyihalarim',
+    'hub.stack': 'Stek', 'hub.stackS': 'texnologiyalar',
+    'hub.contact': 'Aloqa', 'hub.contactS': "bog'lanish",
     'stack.security': '// xavfsizlik (o\'rganmoqda)', 'stack.engineering': '// injiniring', 'stack.systems': '// tizimlar',
     'stack.re': 'Veb-xavfsizlik asoslari', 'stack.ir': 'XSS amaliyoti (DVWA lab)', 'stack.malware': 'Qiziquvchan & o\'rganmoqda',
     'stack.ml': 'Docker (lab)', 'stack.deploy': 'Deploy · cPanel / Vercel',
@@ -39,6 +44,11 @@ const I18N = {
     'about.p1': "I'm an 18-year-old student developer. I started with a Python course in 2023, and now I'm learning full-stack at PDP University (on a grant) and writing automation scripts for a local office.",
     'about.p2': 'Based in Uzbekistan 🇺🇿 · working in Python, JavaScript, and full-stack. Next up: software development with Java.',
     'about.dossier': 'open full dossier →',
+    'hub.title': 'Explore', 'hub.sub': '// click a card — or in the terminal: cd <name>',
+    'hub.about': 'About', 'hub.aboutS': 'who I am',
+    'hub.work': 'Work', 'hub.workS': 'my projects',
+    'hub.stack': 'Stack', 'hub.stackS': 'tech & tools',
+    'hub.contact': 'Contact', 'hub.contactS': 'get in touch',
     'stack.security': '// security (learning)', 'stack.engineering': '// engineering', 'stack.systems': '// systems',
     'stack.re': 'Web-security basics', 'stack.ir': 'XSS practice (DVWA lab)', 'stack.malware': 'Curious & learning',
     'stack.ml': 'Docker (lab)', 'stack.deploy': 'Deploy · cPanel / Vercel',
@@ -59,6 +69,11 @@ const I18N = {
     'about.p1': 'Я 18-летний студент-разработчик. Начал с курса Python в 2023, сейчас изучаю full-stack в PDP University (на гранте) и пишу скрипты автоматизации для местного офиса.',
     'about.p2': 'Нахожусь в Узбекистане 🇺🇿 · работаю с Python, JavaScript и full-stack. Дальше — разработка ПО на Java.',
     'about.dossier': 'открыть полное досье →',
+    'hub.title': 'Разделы', 'hub.sub': '// нажмите карту — или в терминале: cd <имя>',
+    'hub.about': 'Обо мне', 'hub.aboutS': 'кто я',
+    'hub.work': 'Работы', 'hub.workS': 'мои проекты',
+    'hub.stack': 'Стек', 'hub.stackS': 'технологии',
+    'hub.contact': 'Контакт', 'hub.contactS': 'связаться',
     'stack.security': '// безопасность (изучаю)', 'stack.engineering': '// инженерия', 'stack.systems': '// системы',
     'stack.re': 'Основы веб-безопасности', 'stack.ir': 'Практика XSS (DVWA lab)', 'stack.malware': 'Любопытство & учёба',
     'stack.ml': 'Docker (lab)', 'stack.deploy': 'Деплой · cPanel / Vercel',
@@ -171,6 +186,7 @@ let currentCases = [];
 const casesEl = document.getElementById('cases');
 
 function buildCases() {
+  if (!casesEl) return;            // work section now lives on its own page
   currentCases = CASES.map((c) => ({ id: c.id, tagClass: c.tagClass, stack: c.stack, repo: c.repo, ...c.i18n[lang] }));
   casesEl.innerHTML = currentCases.map((c, i) => `
     <article class="case reveal in" data-i="${i}" data-cursor-case>
@@ -289,7 +305,7 @@ function closeCase() {
   modal.classList.remove('open');
   document.body.classList.remove('modal-open');
 }
-casesEl.addEventListener('click', (e) => {
+casesEl?.addEventListener('click', (e) => {
   const card = e.target.closest('.case');
   if (card) openCase(+card.dataset.i);
 });
@@ -417,7 +433,12 @@ function initHomeTerm() {
     } else if (cmd === 'whoami') {
       print('student developer · learning full-stack · PDP University');
     } else if (cmd === 'cd') {
-      const PAGES = { about: 'about/index.html', dossier: 'about/index.html', 'about/': 'about/index.html', contact: 'contact/index.html', 'contact/': 'contact/index.html' };
+      const PAGES = {
+        about: 'about/index.html', dossier: 'about/index.html', 'about/': 'about/index.html',
+        work: 'work/index.html', 'work/': 'work/index.html',
+        stack: 'stack/index.html', 'stack/': 'stack/index.html',
+        contact: 'contact/index.html', 'contact/': 'contact/index.html',
+      };
       if (PAGES[arg]) {
         print('<span class="c-ok">opening ' + arg.replace('/', '') + '...</span>');
         triggerGlitch();
@@ -482,7 +503,7 @@ document.addEventListener('pointerover', (e) => {
   else if (linkEl) { cursor.classList.add('is-link'); cursorLabel.textContent = ''; }
   else { cursorLabel.textContent = ''; }
 });
-casesEl.addEventListener('pointermove', (e) => {
+casesEl?.addEventListener('pointermove', (e) => {
   const card = e.target.closest('.case');
   if (!card) return;
   const rect = card.getBoundingClientRect();

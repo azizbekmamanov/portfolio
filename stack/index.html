@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azizbek Mamanov // Stack</title>
+  <meta name="description" content="Tech stack of Azizbek Mamanov — languages, web, systems, and security (learning)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../about/styles.css" />
+  <style>
+    .stack-page{max-width:820px}
+    .stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .stack-col h3{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:14px;
+      margin-bottom:14px;letter-spacing:.5px}
+    .stack-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;padding:0}
+    .stack-col li{color:var(--muted);font-size:15px;transition:color .2s,transform .2s}
+    .stack-col li:hover{color:var(--text);transform:translateX(4px)}
+    @media(max-width:640px){.stack-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="glow-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="glitch-fx" aria-hidden="true"></div>
+
+  <header class="cyber-header">
+    <div class="header-logo">
+      <span class="bracket">[</span>az<span class="blink">_</span>sys.stack<span class="bracket">]</span>
+    </div>
+    <nav class="header-nav">
+      <a href="../index.html" class="btn-back">← RETURN TO MAIN</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="uz">UZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container stack-page">
+    <section class="profile-hero">
+      <div class="profile-intro">
+        <div class="profile-meta">
+          <span class="badge badge--red" data-i18n="badge">STACK & ARSENAL</span>
+          <span class="sys-time" id="sysTime">SYS_TIME: --</span>
+        </div>
+        <h1 class="profile-title" data-i18n="title">STEK</h1>
+        <p class="profile-subtitle" data-i18n="subtitle">// texnologiyalar va vositalar</p>
+      </div>
+    </section>
+
+    <section class="panel reveal">
+      <div class="panel-body">
+        <div class="stack-grid" id="stackGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cyber-footer">
+    <span data-i18n="footer">© 2026 Azizbek Mamanov // stack</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

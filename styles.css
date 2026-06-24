@@ -475,3 +475,20 @@ body.is-glitching .glitch-fx{
 @media(prefers-reduced-motion:reduce){
   body.is-glitching .glitch-fx{animation:none;opacity:0}
 }
+
+/* ============ HUB DIRECTORY ============ */
+.hub{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.hub-card{
+  display:flex;flex-direction:column;gap:6px;padding:24px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+  transition:transform .3s var(--ease),border-color .3s,box-shadow .3s;position:relative;overflow:hidden}
+.hub-card:hover{transform:translateY(-6px);border-color:#2c3744;
+  box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.hub-card__idx{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent)}
+.hub-card h3{font-size:22px;font-weight:600;letter-spacing:-.5px}
+.hub-card p{color:var(--muted);font-size:14px;flex:1}
+.hub-card__go{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--faint);
+  transition:color .2s}
+.hub-card:hover .hub-card__go{color:var(--accent)}
+@media(max-width:880px){.hub{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.hub{grid-template-columns:1fr}}

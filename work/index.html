@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Azizbek Mamanov // Work</title>
+  <meta name="description" content="Selected projects by Azizbek Mamanov — DMED, KUTUBXONA, pdp-davomat, AI userbot." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../about/styles.css" />
+  <style>
+    .work-page{max-width:820px}
+    .proj-desc{font-size:15px;color:var(--muted);margin:10px 0 16px;line-height:1.6}
+    .proj-stack{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;padding:0}
+    .proj-stack li{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--faint);
+      border:1px solid var(--line);padding:4px 10px;border-radius:20px}
+    .proj-tag{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+      letter-spacing:1.2px;padding:4px 9px;border-radius:6px;color:var(--accent);
+      background:rgba(57,255,139,.1)}
+    .proj-repo{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--cyan)}
+    .proj-repo.private{color:var(--faint)}
+  </style>
+</head>
+<body>
+  <div class="glow-bg" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="glitch-fx" aria-hidden="true"></div>
+
+  <header class="cyber-header">
+    <div class="header-logo">
+      <span class="bracket">[</span>az<span class="blink">_</span>sys.work<span class="bracket">]</span>
+    </div>
+    <nav class="header-nav">
+      <a href="../index.html" class="btn-back">← RETURN TO MAIN</a>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn active" data-lang="uz">UZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="ru">RU</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container work-page">
+    <section class="profile-hero">
+      <div class="profile-intro">
+        <div class="profile-meta">
+          <span class="badge badge--red" data-i18n="badge">SELECTED WORK</span>
+          <span class="sys-time" id="sysTime">SYS_TIME: --</span>
+        </div>
+        <h1 class="profile-title" data-i18n="title">ISHLAR</h1>
+        <p class="profile-subtitle" data-i18n="subtitle">// o'quv va amaliy loyihalar</p>
+      </div>
+    </section>
+
+    <div id="projects"></div>
+  </main>
+
+  <footer class="cyber-footer">
+    <span data-i18n="footer">© 2026 Azizbek Mamanov // work</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

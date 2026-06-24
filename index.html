@@ -50,9 +50,9 @@
       <span class="nav__bracket">[</span>az<span class="nav__cursor">_</span><span class="nav__bracket">]</span>
     </a>
     <nav class="nav__links" id="navLinks">
-      <a href="#work" data-cursor data-i18n="nav.work">work</a>
-      <a href="#about" data-cursor data-i18n="nav.about">about</a>
-      <a href="#stack" data-cursor data-i18n="nav.stack">stack</a>
+      <a href="work/index.html" data-cursor data-i18n="nav.work">work</a>
+      <a href="about/index.html" data-cursor data-i18n="nav.about">about</a>
+      <a href="stack/index.html" data-cursor data-i18n="nav.stack">stack</a>
       <a href="contact/index.html" class="nav__cta" data-cursor data-i18n="nav.contact">contact</a>
       <div class="lang" id="lang">
         <button class="lang__btn" data-lang="uz">UZ</button>
@@ -83,7 +83,7 @@
           practice web security in a legal lab.
         </p>
         <div class="hero__actions">
-          <a href="#work" class="btn btn--primary" data-cursor data-i18n="hero.btnWork">view selected work →</a>
+          <a href="work/index.html" class="btn btn--primary" data-cursor data-i18n="hero.btnWork">view selected work →</a>
           <a href="contact/index.html" class="btn btn--ghost" data-cursor data-i18n="hero.btnContact">get in touch</a>
         </div>
 
@@ -123,67 +123,38 @@
       <div class="stat reveal"><span class="stat__num" data-target="2025">0</span><p data-i18n="stat.s4">at PDP University since</p></div>
     </section>
 
-    <!-- ===== WORK ===== -->
-    <section id="work" class="section">
+    <!-- ===== DIRECTORY (hub) ===== -->
+    <section id="explore" class="section">
       <div class="section__head reveal">
-        <span class="section__idx">01</span>
-        <h2 class="section__title" data-i18n="sec.work">Selected Work</h2>
-        <p class="section__sub" data-i18n="sec.workSub">// case files — click to open</p>
+        <span class="section__idx">//</span>
+        <h2 class="section__title" data-i18n="hub.title">Explore</h2>
+        <p class="section__sub" data-i18n="hub.sub">// click a card — or use the terminal: cd &lt;name&gt;</p>
       </div>
-      <div class="cases" id="cases"></div>
-    </section>
-
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="section">
-      <div class="section__head reveal">
-        <span class="section__idx">02</span>
-        <h2 class="section__title" data-i18n="sec.about">About</h2>
-      </div>
-      <div class="about reveal">
-        <p class="about__lead" data-i18n-html="about.lead">I <em>understand the process first</em>, then build.</p>
-        <p data-i18n="about.p1">I'm an 18-year-old student developer. I started with a Python course in 2023, and now I'm learning full-stack at PDP University (on a grant) and writing automation scripts for a local office.</p>
-        <p data-i18n="about.p2">Based in Uzbekistan 🇺🇿 · working in Python, JavaScript, and full-stack. Next up: software development with Java.</p>
-        <a href="about/index.html" class="btn btn--ghost" data-cursor data-i18n="about.dossier" style="margin-top:10px;display:inline-block">open full dossier →</a>
-      </div>
-    </section>
-
-    <!-- ===== STACK ===== -->
-    <section id="stack" class="section">
-      <div class="section__head reveal">
-        <span class="section__idx">03</span>
-        <h2 class="section__title" data-i18n="sec.stack">Stack &amp; Arsenal</h2>
-      </div>
-      <div class="stack reveal">
-        <div class="stack__col">
-          <h4 data-i18n="stack.security">// security (learning)</h4>
-          <ul>
-            <li data-i18n="stack.re">Web-security basics</li>
-            <li data-i18n="stack.ir">XSS practice (DVWA lab)</li>
-            <li>HTTP · DevTools</li>
-            <li>Linux</li>
-            <li data-i18n="stack.malware">Curious & learning</li>
-          </ul>
-        </div>
-        <div class="stack__col">
-          <h4 data-i18n="stack.engineering">// engineering</h4>
-          <ul>
-            <li>Python · Flask / FastAPI</li>
-            <li>Node · Express</li>
-            <li>Next.js · React</li>
-            <li>SQLite · PostgreSQL</li>
-            <li>Three.js · WebGL</li>
-          </ul>
-        </div>
-        <div class="stack__col">
-          <h4 data-i18n="stack.systems">// systems</h4>
-          <ul>
-            <li>Linux</li>
-            <li>ESP32 · MicroPython</li>
-            <li data-i18n="stack.ml">Docker (lab)</li>
-            <li data-i18n="stack.deploy">Deploy · cPanel / Vercel</li>
-            <li>Git</li>
-          </ul>
-        </div>
+      <div class="hub reveal">
+        <a class="hub-card" href="about/index.html" data-cursor>
+          <span class="hub-card__idx">01</span>
+          <h3 data-i18n="hub.about">About</h3>
+          <p data-i18n="hub.aboutS">who I am</p>
+          <span class="hub-card__go">cd about →</span>
+        </a>
+        <a class="hub-card" href="work/index.html" data-cursor>
+          <span class="hub-card__idx">02</span>
+          <h3 data-i18n="hub.work">Work</h3>
+          <p data-i18n="hub.workS">my projects</p>
+          <span class="hub-card__go">cd work →</span>
+        </a>
+        <a class="hub-card" href="stack/index.html" data-cursor>
+          <span class="hub-card__idx">03</span>
+          <h3 data-i18n="hub.stack">Stack</h3>
+          <p data-i18n="hub.stackS">tech &amp; tools</p>
+          <span class="hub-card__go">cd stack →</span>
+        </a>
+        <a class="hub-card" href="contact/index.html" data-cursor>
+          <span class="hub-card__idx">04</span>
+          <h3 data-i18n="hub.contact">Contact</h3>
+          <p data-i18n="hub.contactS">get in touch</p>
+          <span class="hub-card__go">cd contact →</span>
+        </a>
       </div>
     </section>
   </main>

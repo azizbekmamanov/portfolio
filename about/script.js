@@ -31,7 +31,7 @@ const I18N = {
     'cli.placeholder': 'buyruq kiriting...',
     'cli.welcome': "Men haqimda bilish uchun buyruq yozing yoki tugmani bosing. (↑/↓ tarix, Tab to'ldirish). Boshlash: <span class='c-accent'>help</span>",
     'cli.invalid': 'Noma\'lum buyruq. Ro\'yxat uchun "help" deb yozing.',
-    'cli.help': "Mavjud buyruqlar:\n  whoami    - Men kimman\n  skills    - Texnologiyalar\n  projects  - Loyihalarim\n  contact   - Aloqa\n  clear     - Konsolni tozalash",
+    'cli.help': "Mavjud buyruqlar:\n  whoami    - Men kimman\n  skills    - Texnologiyalar\n  projects  - Loyihalarim\n  contact   - Aloqa\n  ls        - Bo'limlar ro'yxati\n  cd <nom>  - Boshqa sahifaga o'tish\n  clear     - Konsolni tozalash",
     'cli.whoami': "AZIZBEK MAMANOV // 18\n--------------------\nUniversitet talabasi (PDP University, grant).\n2023-yilda Python bilan boshlaganman.\nMaqsadim — jarayonni chuqur tushunib, buzilmaydigan tizimlar qurish.\nQiziqishlarim: full-stack, avtomatlashtirish, veb-xavfsizlik (qonuniy lab).",
     'cli.skills': "TEXNOLOGIYALAR\n--------------\n- Tillar: Python (asoslar, biroz OOP), C++ (asoslar), JavaScript\n- Web: HTML, CSS, Node/Express, biroz React/Next.js\n- Ma'lumotlar: SQLite, PostgreSQL\n- Vositalar: Linux, Git, Docker (lab)\n- O'rganmoqda: full-stack, software development (Java)",
     'cli.projects': "LOYIHALAR (o'quv / amaliy)\n-------------------------\n- dmed         tibbiy yozuvlar tizimi (Express + React)\n- KUTUBXONA    kutubxona boshqaruv tizimi\n- pdp-davomat  davomat / LMS (Flask)\n- userbot      AI bilan ishlaydigan Telegram userbot\n* GitHub: github.com/azizbekmamanov",
@@ -65,7 +65,7 @@ const I18N = {
     'cli.placeholder': 'type a command...',
     'cli.welcome': "Type a command or click a shortcut to learn about me. (↑/↓ history, Tab to complete). Start with <span class='c-accent'>help</span>",
     'cli.invalid': 'Unknown command. Type "help" for a list.',
-    'cli.help': 'Available commands:\n  whoami    - Who I am\n  skills    - Technologies\n  projects  - My projects\n  contact   - Contact\n  clear     - Clear the console',
+    'cli.help': 'Available commands:\n  whoami    - Who I am\n  skills    - Technologies\n  projects  - My projects\n  contact   - Contact\n  ls        - List sections\n  cd <name> - Go to another page\n  clear     - Clear the console',
     'cli.whoami': "AZIZBEK MAMANOV // 18\n--------------------\nUniversity student (PDP University, grant).\nStarted with Python back in 2023.\nGoal: deeply understand the process and build systems that don't break.\nInterests: full-stack, automation, web security (legal lab).",
     'cli.skills': 'TECHNOLOGIES\n------------\n- Languages: Python (basics, some OOP), C++ (basics), JavaScript\n- Web: HTML, CSS, Node/Express, some React/Next.js\n- Data: SQLite, PostgreSQL\n- Tools: Linux, Git, Docker (lab)\n- Learning: full-stack, software development (Java)',
     'cli.projects': 'PROJECTS (learning / practical)\n------------------------------\n- dmed         medical-records system (Express + React)\n- KUTUBXONA    library management system\n- pdp-davomat  attendance / LMS (Flask)\n- userbot      AI-powered Telegram userbot\n* GitHub: github.com/azizbekmamanov',
@@ -99,7 +99,7 @@ const I18N = {
     'cli.placeholder': 'введите команду...',
     'cli.welcome': "Введите команду или нажмите кнопку, чтобы узнать обо мне. (↑/↓ история, Tab дополнение). Начните с <span class='c-accent'>help</span>",
     'cli.invalid': 'Неизвестная команда. Введите "help" для списка.',
-    'cli.help': 'Доступные команды:\n  whoami    - Кто я\n  skills    - Технологии\n  projects  - Мои проекты\n  contact   - Контакты\n  clear     - Очистить консоль',
+    'cli.help': 'Доступные команды:\n  whoami    - Кто я\n  skills    - Технологии\n  projects  - Мои проекты\n  contact   - Контакты\n  ls        - Список разделов\n  cd <имя>  - Перейти на другую страницу\n  clear     - Очистить консоль',
     'cli.whoami': "АЗИЗБЕК МАМАНОВ // 18\n--------------------\nСтудент университета (PDP University, грант).\nНачал с Python ещё в 2023.\nЦель — глубоко понять процесс и строить системы, которые не ломаются.\nИнтересы: full-stack, автоматизация, веб-безопасность (легальная лаборатория).",
     'cli.skills': 'ТЕХНОЛОГИИ\n----------\n- Языки: Python (основы, немного ООП), C++ (основы), JavaScript\n- Web: HTML, CSS, Node/Express, немного React/Next.js\n- Данные: SQLite, PostgreSQL\n- Инструменты: Linux, Git, Docker (lab)\n- Изучаю: full-stack, разработку ПО (Java)',
     'cli.projects': 'ПРОЕКТЫ (учебные / практические)\n-------------------------------\n- dmed         система медкарт (Express + React)\n- KUTUBXONA    система управления библиотекой\n- pdp-davomat  посещаемость / LMS (Flask)\n- userbot      Telegram userbot с ИИ\n* GitHub: github.com/azizbekmamanov',
@@ -166,7 +166,7 @@ const RESPONSES = {
   'skills --list': 'cli.skills', projects: 'cli.projects',
   contact: 'cli.contact', creds: 'cli.contact', credentials: 'cli.contact',
 };
-const COMMANDS = ['help', 'whoami', 'skills', 'projects', 'contact', 'clear'];
+const COMMANDS = ['help', 'whoami', 'skills', 'projects', 'contact', 'ls', 'cd', 'clear'];
 const history = [];
 let histIdx = -1;
 
@@ -191,7 +191,28 @@ function printToTerminal(inputText) {
   const res = document.createElement('div');
   res.style.whiteSpace = 'pre-wrap';
   res.style.marginTop = '4px';
-  if (RESPONSES[command]) {
+
+  const [base, arg] = command.split(/\s+/);
+  const NAV = {
+    main: '../index.html', home: '../index.html', '..': '../index.html', '~': '../index.html',
+    work: '../work/index.html', 'work/': '../work/index.html',
+    stack: '../stack/index.html', 'stack/': '../stack/index.html',
+    contact: '../contact/index.html', 'contact/': '../contact/index.html',
+  };
+
+  if (base === 'ls') {
+    res.innerHTML = '<span class="c-ok">main/   work/   stack/   contact/</span>  <span class="c-faint">(siz: about/)</span>';
+  } else if (base === 'cd') {
+    if (!arg || arg === 'about' || arg === 'about/' || arg === '.') {
+      res.innerHTML = '<span class="c-faint">already in about/</span>';
+    } else if (NAV[arg]) {
+      res.innerHTML = `<span class="c-ok">opening ${arg.replace('/', '')}...</span>`;
+      triggerGlitch();
+      setTimeout(() => { location.href = NAV[arg]; }, 260);
+    } else {
+      res.innerHTML = `<span class="c-red">cd: ${arg.replace(/</g, '&lt;')}: no such section</span>`;
+    }
+  } else if (RESPONSES[command]) {
     const cls = command === 'whoami' ? 'c-accent'
       : (command === 'contact' || command === 'creds' || command === 'credentials') ? 'c-text'
       : 'c-cyan';

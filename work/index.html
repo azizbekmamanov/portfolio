@@ -11,25 +11,58 @@
   <link rel="stylesheet" href="../about/styles.css" />
   <style>
     .work-page{max-width:1080px}
-    #projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-    #projects .panel{margin-bottom:0;display:flex;flex-direction:column}
-    #projects .panel-body{flex:1;display:flex;flex-direction:column}
-    .proj-desc{font-size:14.5px;color:var(--muted);margin:12px 0 16px;line-height:1.6;flex:1}
-    .proj-stack{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;padding:0}
+
+    /* ---- card grid ---- */
+    .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .wcard{display:flex;flex-direction:column;text-align:left;cursor:pointer;font:inherit;color:inherit;
+      background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;overflow:hidden;padding:0;
+      transition:border-color .3s,transform .3s,box-shadow .3s}
+    .wcard:hover{border-color:#2e3745;transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.5)}
+    .wcard__thumb{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line);background:#070809}
+    .wcard__thumb svg{width:100%;height:100%;display:block;transition:transform .5s var(--ease)}
+    .wcard:hover .wcard__thumb svg{transform:scale(1.05)}
+    .wcard__open{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+      background:rgba(7,8,10,.55);opacity:0;transition:opacity .3s;
+      font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent);letter-spacing:1.5px}
+    .wcard:hover .wcard__open{opacity:1}
+    .wcard__meta{padding:15px 18px 18px;display:flex;flex-direction:column;gap:9px}
+    .wcard__meta h3{font-size:17px;color:var(--text);font-weight:600}
+
+    .proj-tag{align-self:flex-start;font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;
+      letter-spacing:1.2px;padding:4px 9px;border-radius:6px;color:var(--accent);background:rgba(57,255,139,.1)}
+    .proj-stack{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0}
     .proj-stack li{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--faint);
-      border:1px solid var(--line);padding:4px 10px;border-radius:20px;
-      transition:border-color .2s,color .2s}
-    #projects .panel:hover .proj-stack li{border-color:#2e3745;color:var(--muted)}
-    .proj-tag{align-self:flex-start;font-family:"JetBrains Mono",monospace;font-size:11px;
-      font-weight:700;letter-spacing:1.2px;padding:4px 9px;border-radius:6px;color:var(--accent);
-      background:rgba(57,255,139,.1)}
+      border:1px solid var(--line);padding:4px 10px;border-radius:20px}
+
+    /* ---- modal ---- */
+    .wmodal{position:fixed;inset:0;z-index:12000;display:none;align-items:center;justify-content:center;padding:20px}
+    .wmodal.open{display:flex}
+    .wmodal__backdrop{position:absolute;inset:0;background:rgba(3,4,6,.78);backdrop-filter:blur(6px)}
+    .wmodal__panel{position:relative;z-index:1;width:min(680px,100%);max-height:90vh;overflow:auto;
+      background:var(--bg-soft);border:1px solid var(--line);border-radius:14px;
+      box-shadow:0 30px 80px rgba(0,0,0,.65);animation:wpop .35s var(--ease)}
+    @keyframes wpop{from{opacity:0;transform:translateY(18px) scale(.98)}}
+    .wmodal__bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--line);
+      background:#0d0f13;position:sticky;top:0;z-index:2}
+    .tdot{width:11px;height:11px;border-radius:50%;border:0;cursor:pointer;padding:0}
+    .tdot--r{background:#ff5f56}.tdot--y{background:#ffbd2e}.tdot--g{background:#27c93f}
+    .wmodal__fname{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted);margin-left:6px}
+    .wmodal__esc{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--faint);
+      border:1px solid var(--line);padding:1px 7px;border-radius:4px}
+    .wmodal__preview{aspect-ratio:16/9;background:#070809;border-bottom:1px solid var(--line)}
+    .wmodal__preview svg{width:100%;height:100%;display:block}
+    .wmodal__body{padding:22px 24px 26px}
+    .wmodal__body h2{font-size:22px;margin:12px 0 8px;color:var(--text)}
+    .wmodal__desc{color:var(--muted);font-size:15px;line-height:1.65;margin-bottom:16px}
+    .wmodal__note{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--faint);margin:14px 0 4px}
+    .wmodal__links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
     .proj-repo{display:inline-flex;align-items:center;gap:6px;font-family:"JetBrains Mono",monospace;
-      font-size:12.5px;color:var(--cyan);border:1px solid rgba(55,230,255,.25);
-      padding:7px 12px;border-radius:8px;align-self:flex-start;
+      font-size:12.5px;color:var(--cyan);border:1px solid rgba(55,230,255,.25);padding:8px 14px;border-radius:8px;
       transition:background .2s,box-shadow .2s,transform .2s}
     .proj-repo:hover{background:rgba(55,230,255,.08);box-shadow:0 0 16px var(--cyan-glow);transform:translateY(-1px)}
     .proj-repo.private{color:var(--faint);border-color:var(--line);pointer-events:none}
-    @media(max-width:720px){#projects{grid-template-columns:1fr}}
+
+    @media(max-width:720px){.wgrid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -59,12 +92,34 @@
           <span class="sys-time" id="sysTime">SYS_TIME: --</span>
         </div>
         <h1 class="profile-title" data-i18n="title">ISHLAR</h1>
-        <p class="profile-subtitle" data-i18n="subtitle">// o'quv va amaliy loyihalar</p>
+        <p class="profile-subtitle" data-i18n="subtitle">// o'quv va amaliy loyihalar — kartani bosing</p>
       </div>
     </section>
 
-    <div id="projects"></div>
+    <div class="wgrid" id="projects"></div>
   </main>
+
+  <!-- ===== PROJECT MODAL ===== -->
+  <div class="wmodal" id="wmodal" aria-hidden="true">
+    <div class="wmodal__backdrop" data-close></div>
+    <div class="wmodal__panel" role="dialog" aria-modal="true">
+      <div class="wmodal__bar">
+        <button class="tdot tdot--r" data-close aria-label="close" title="close"></button>
+        <button class="tdot tdot--y" data-close aria-label="minimize"></button>
+        <span class="tdot tdot--g" title="zoom"></span>
+        <span class="wmodal__fname" id="wmName">project.app</span>
+        <span class="wmodal__esc">esc</span>
+      </div>
+      <div class="wmodal__preview" id="wmPreview"></div>
+      <div class="wmodal__body">
+        <span class="proj-tag" id="wmTag"></span>
+        <h2 id="wmTitle"></h2>
+        <p class="wmodal__desc" id="wmDesc"></p>
+        <ul class="proj-stack" id="wmStack"></ul>
+        <div class="wmodal__links" id="wmLinks"></div>
+      </div>
+    </div>
+  </div>
 
   <footer class="cyber-footer">
     <span data-i18n="footer">© 2026 Azizbek Mamanov // work</span>
